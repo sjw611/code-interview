@@ -78,10 +78,10 @@ public class SinglyLinkedList<T> {
 	}
 	
 	public static class Node<T> {
-		private T data;
-		private Node<T> next;
+		T data;
+		Node<T> next;
 
-		private Node(T data) {
+		Node(T data) {
 			this.data = Objects.requireNonNull(data);
 		}
 
