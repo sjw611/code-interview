@@ -77,6 +77,16 @@ public class SinglyLinkedList<T> {
 		return head;
 	}
 	
+	@Override
+	public String toString() {
+		StringBuilder sb = new StringBuilder();
+		for (Node<T> current = head; current != null; current = current.next) {
+			sb.append(current.data).append(" -> ");
+		}
+		sb.append("(end)");
+		return sb.toString();
+	}
+	
 	public static class Node<T> {
 		T data;
 		Node<T> next;

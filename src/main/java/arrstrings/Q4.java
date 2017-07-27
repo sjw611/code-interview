@@ -27,7 +27,7 @@ public class Q4 {
 		return true;
 	}
 	
-	boolean isPalindrome(String input) {
+	public boolean isPalindrome(String input) {
 		String normalised = normalise(input);
 		
 		int length = normalised.length();
