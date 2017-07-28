@@ -43,6 +43,23 @@ public class DoublyLinkedList<T> {
 		return node;
 	}
 
+	public T removeLast() {
+		if (tail.prev == head) {
+			return null;
+		}
+
+		Node<T> lastNode = tail.prev;
+		
+		lastNode.next.prev = lastNode.prev;
+		lastNode.prev.next = lastNode.next;
+		
+		return lastNode.data;
+	}
+	
+	public T lastElement() {
+		return tail.prev.data;
+	}
+	
 	public Node<T> delete(T data) {
 		Objects.requireNonNull(data);
 		
