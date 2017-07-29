@@ -16,7 +16,12 @@ public class ArrayStacks<T> {
 	public int size(int stackNumber) {
 		validateStackNumber(stackNumber);
 
-		return stackPointers[stackNumber - 1] - array.length / stackPointers.length * (stackNumber - 1);
+		return stackPointers[stackNumberInArray(stackNumber)]
+				- array.length / stackPointers.length * stackNumberInArray(stackNumber);
+	}
+
+	private int stackNumberInArray(int stackNumber) {
+		return stackNumber - 1;
 	}
 
 	public T pop(int stackNumber) {
@@ -28,7 +33,7 @@ public class ArrayStacks<T> {
 			return null;
 		}
 
-		array[--stackPointers[stackNumber - 1]] = null;
+		array[--stackPointers[stackNumberInArray(stackNumber)]] = null;
 
 		return result;
 	}
@@ -36,11 +41,11 @@ public class ArrayStacks<T> {
 	public T peek(int stackNumber) {
 		validateStackNumber(stackNumber);
 
-		if (stackPointers[stackNumber - 1] == 0) {
+		if (stackPointers[stackNumberInArray(stackNumber)] == 0) {
 			return null;
 		}
 
-		return array[stackPointers[stackNumber - 1] - 1];
+		return array[stackPointers[stackNumberInArray(stackNumber)] - 1];
 	}
 
 	public boolean push(T element, int stackNumber) {
@@ -48,7 +53,7 @@ public class ArrayStacks<T> {
 
 		ensureCapacity();
 
-		array[stackPointers[stackNumber - 1]++] = element;
+		array[stackPointers[stackNumberInArray(stackNumber)]++] = element;
 
 		return true;
 	}
