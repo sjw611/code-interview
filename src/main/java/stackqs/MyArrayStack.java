@@ -2,48 +2,26 @@ package stackqs;
 
 public class MyArrayStack<T> implements MyStack<T> {
 
-	private static final int DEFAULT_ARRAY_CAPACITY = 2;
-	
-	@SuppressWarnings("unchecked")
-	private T[] array = (T[]) new Object[DEFAULT_ARRAY_CAPACITY];
-	
-	private int size = 0;
+	private ArrayStacks<T> stack = new ArrayStacks<>(1);
 	
 	@Override
 	public T pop() {
-		if (size == 0) {
-			return null;
-		}
-		return array[--size];
+		return stack.pop(1);
 	}
 
 	@Override
 	public boolean push(T element) {
-		ensureCapacity();
-		array[size++] = element;
-		return true;
-	}
-
-	private void ensureCapacity() {
-		if (size == array.length) {
-			@SuppressWarnings("unchecked")
-			T[] doubled = (T[]) new Object[2 * size];
-			System.arraycopy(array, 0, doubled, 0, size);
-			array = doubled;
-		}
+		return stack.push(element, 1);
 	}
 
 	@Override
 	public int size() {
-		return size;
+		return stack.size(1);
 	}
 
 	@Override
 	public T peek() {
-		if (isEmpty()) {
-			return null;
-		}
-		return array[size - 1];
+		return stack.peek(1);
 	}
 
 }
