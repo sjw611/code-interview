@@ -56,8 +56,24 @@ public class DoublyLinkedList<T> {
 		return lastNode.data;
 	}
 	
+	public T removeFirst() {
+		if (head.next == tail) {
+			return null;
+		}
+		
+		Node<T> firstNode = head.next;
+		firstNode.next.prev = firstNode.prev;
+		firstNode.prev.next = firstNode.next;
+		
+		return firstNode.data;
+	}
+	
 	public T lastElement() {
 		return tail.prev.data;
+	}
+	
+	public T firstElement() {
+		return head.next.data;
 	}
 	
 	public Node<T> delete(T data) {
