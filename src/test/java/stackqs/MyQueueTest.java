@@ -6,7 +6,7 @@ import org.junit.Test;
 
 public class MyQueueTest {
 
-	private MyQueue<String> sut = new MyLinkedListQueue<>();
+	private MyQueue<String> sut = new TwoStacksQueue<>(new MyDoublyLinkedListStack<>(), new MyArrayStack<>());
 	
 	@Test
 	public void test() {
