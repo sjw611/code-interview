@@ -8,32 +8,19 @@ public class BinarySearchTree<T extends Comparable<? super T>> extends BinaryTre
 	public boolean insert(T element) {
 		Objects.requireNonNull(element);
 
-		if (root == null) {
-			root = new Node<>(element);
-			return true;
-		}
+		root = insert(root, element);
+		return true;
+	}
 
-		Node<T> current = root;
-
-		while (true) {
-			if (element.compareTo(current.element) == 0) {
-				return false;
-			} else if (element.compareTo(current.element) < 0) {
-				if (current.left == null) {
-					current.left = new Node<>(element);
-					return true;
-				} else {
-					current = current.left;
-				}
-			} else {
-				if (current.right == null) {
-					current.right = new Node<>(element);
-					return true;
-				} else {
-					current = current.right;
-				}
-			}
+	private Node<T> insert(Node<T> current, T element) {
+		if (current == null) {
+			current = new Node<>(element);
+		} else if (element.compareTo(current.element) < 0) {
+			current.left = insert(current.left, element);
+		} else if (element.compareTo(current.element) > 0) {
+			current.right = insert(current.right, element);
 		}
+		return current;
 	}
 
 	@Override
