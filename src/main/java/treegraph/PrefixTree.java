@@ -1,5 +1,5 @@
 package treegraph;
 
-public class PrefixTree {
+public class PrefixTree<T> {
 
 }
