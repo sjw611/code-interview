@@ -1,5 +1,7 @@
 package treegraph;
 
+import static org.junit.Assert.*;
+
 import org.junit.Test;
 
 public class PrefixTreeTest {
@@ -27,6 +29,12 @@ public class PrefixTreeTest {
 		sut.insert("MAN");
 		
 		System.out.println(sut.root);
+		
+		assertTrue(sut.lookup("M"));
+		assertTrue(sut.lookup("MA"));
+		assertTrue(sut.lookup("MAN"));
+		assertTrue(sut.lookup("MANY"));
+		assertFalse(sut.lookup("MK"));
 	}
 
 }

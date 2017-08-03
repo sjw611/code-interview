@@ -34,6 +34,20 @@ public class PrefixTree {
 		current.children.put(TERMINATING_VALUE, TERMINATING_NODE);
 	}
 
+	public boolean lookup(String word) {
+		Objects.requireNonNull(word);
+		
+		TrieNode current = root;
+		
+		for (char c : word.toCharArray()) {
+			if (!current.children.containsKey(c)) {
+				return false;
+			}
+			current = current.children.get(c);
+		}
+		return true;
+	}
+
 	static class TrieNode {
 		char element;
 		Map<Character, TrieNode> children = new HashMap<>();
@@ -62,7 +76,4 @@ public class PrefixTree {
 			super('*');
 		}
 	}
-    public boolean lookup(String word) {
-    	return false;
-    }
 }
