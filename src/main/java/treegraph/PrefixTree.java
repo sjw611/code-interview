@@ -62,4 +62,7 @@ public class PrefixTree {
 			super('*');
 		}
 	}
+    public boolean lookup(String word) {
+    	return false;
+    }
 }
