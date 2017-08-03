@@ -6,8 +6,8 @@ import org.junit.Test;
 
 public class BinarySearchTreeTest {
 
-	BinaryTree<Integer> sut = new BinarySearchTree<>();
-	TreeTraversal<Integer> traversal = new InOrderTreeTraversal<>();
+	private BinaryTree<Integer> sut = new BinarySearchTree<>();
+	private TreeTraversal<Integer> traversal = new InOrderTreeTraversal<>();
 
 	@Test
 	public void test() {

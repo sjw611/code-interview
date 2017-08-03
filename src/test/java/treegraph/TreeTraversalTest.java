@@ -6,7 +6,7 @@ import treegraph.BinaryTree.Node;
 
 public class TreeTraversalTest {
 
-	private TreeTraversal<String> sut = new PostOrderTreeTraversal<>();
+	private TreeTraversal<String> sut = new PreOrderTreeTraversal<>();
 
 	@Test
 	public void test() {
