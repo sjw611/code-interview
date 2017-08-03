@@ -1,11 +1,13 @@
 package treegraph;
 
+import static org.junit.Assert.*;
+
 import org.junit.Test;
 
-public class TreeTraversalTest {
+public class BreadthFirstSearchTest {
 
-	private TreeTraversal<String> sut = new PreOrderTreeTraversal<>();
-
+	private Search<String> sut = new BreadthFirstSearch<>(); 
+	
 	@Test
 	public void test() {
 		Node<String> root = new Node<>("Hello");
@@ -23,7 +25,15 @@ public class TreeTraversalTest {
 		n2.right = n5;
 		n4.left = n6;
 		
-		sut.traverse(root);
+		assertEquals("Gu", sut.find(root, "Gu").element);
+		
+		System.out.println("-------");
+		
+		assertEquals("Jingwei", sut.find(root, "Jingwei").element);
+		
+		System.out.println("-------");
+		
+		assertNull(sut.find(root, "Hey"));
 	}
 
 }

@@ -1,7 +1,5 @@
 package treegraph;
 
-import treegraph.BinaryTree.Node;
-
 public class PostOrderTreeTraversal<T> implements TreeTraversal<T> {
 
 	@Override

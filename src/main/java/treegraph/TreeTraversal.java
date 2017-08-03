@@ -1,7 +1,5 @@
 package treegraph;
 
-import treegraph.BinaryTree.Node;
-
 public interface TreeTraversal<T> {
 
 	void traverse(Node<T> root);
