@@ -1,5 +1,5 @@
 package treegraph;
 
-public class Tries {
+public class Tries<T> {
 
 }
