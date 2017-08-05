@@ -9,6 +9,7 @@ import org.junit.Test;
 public class SortTest {
 
 	private Sort<Integer> bs = new BubbleSort<>();
+	private Sort<Integer> ss = new SelectionSort<>();
 
 	private Integer[] original = Arrays.asList(3, 2, 1, 1, 5, 9, 8).toArray(new Integer[] {});
 	
@@ -19,6 +20,15 @@ public class SortTest {
 		Integer[] array = original.clone();
 		
 		bs.sort(array);
+		
+		assertArrayEquals(sorted, array);
+	}
+	
+	@Test
+	public void selectionSort() {
+		Integer[] array = original.clone();
+		
+		ss.sort(array);
 		
 		assertArrayEquals(sorted, array);
 	}
