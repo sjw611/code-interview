@@ -14,4 +14,9 @@ public class GraphNode<T> {
 	public void addNeighbour(GraphNode<T> node) {
 		neighbours.add(node);
 	}
+	
+	@Override
+	public String toString() {
+		return String.valueOf(element);
+	}
 }
