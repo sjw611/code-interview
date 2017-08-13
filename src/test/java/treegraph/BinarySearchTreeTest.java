@@ -1,6 +1,11 @@
 package treegraph;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNull;
+
+import java.util.HashMap;
+import java.util.Map;
+import java.util.concurrent.atomic.AtomicLong;
 
 import org.junit.Test;
 
@@ -29,6 +34,24 @@ public class BinarySearchTreeTest {
 		assertEquals(20, sut.find(20).element.intValue());
 
 		assertNull(sut.find(12));
+	}
+
+	@Test
+	public void getRandomNode() {
+		BinarySearchTree<String> tree = new BinarySearchTree<>();
+		tree.insert("Hello");
+		tree.insert("Bye");
+		tree.insert("Justin");
+		tree.insert("Song");
+
+		Map<Node<String>, AtomicLong> counts = new HashMap<>();
+
+		for (int i = 0; i < 1000; ++i) {
+			Node<String> random = tree.getRandomNode();
+			counts.putIfAbsent(random, new AtomicLong());
+			counts.get(random).incrementAndGet();
+		}
+		System.out.println(counts);
 	}
 
 }
