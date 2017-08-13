@@ -22,4 +22,11 @@ public class BitUtilsTest {
 		assertEquals(0, sut.getBit(number, 6));
 	}
 
+	@Test
+	public void insertion() {
+		int n = Integer.valueOf("10001111100", 2);
+		int m = Integer.valueOf("10011", 2);
+		
+		assertEquals("10001001100", Integer.toBinaryString(sut.insertion(n, m, 2, 6)));
+	}
 }
