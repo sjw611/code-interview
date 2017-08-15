@@ -4,6 +4,20 @@ import java.util.Arrays;
 
 public class Q7 {
 	public static void main(String[] args) {
+		int[] prime = prime();
+
+		long sum = 0;
+
+		for (int i = 2; i < prime.length; ++i) {
+			if (prime[i] == 1) {
+				sum += i;
+			}
+		}
+
+		System.out.println(sum);
+	}
+
+	static int[] prime() {
 		int[] prime = new int[2_000_000];
 		Arrays.fill(prime, 1);
 
@@ -17,16 +31,7 @@ public class Q7 {
 				}
 			}
 		}
-
-		long sum = 0;
-
-		for (int i = 2; i < prime.length; ++i) {
-			if (prime[i] == 1) {
-				sum += i;
-			}
-		}
-
-		System.out.println(sum);
+		return prime;
 	}
 
 }
