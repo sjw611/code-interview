@@ -12,7 +12,7 @@ public class Q20 {
 		System.out.println(digits);
 	}
 
-	private static BigInteger fact(BigInteger num) {
+	static BigInteger fact(BigInteger num) {
 		if (num.compareTo(BigInteger.ONE) <= 0) {
 			return BigInteger.ONE;
 		}
