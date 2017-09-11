@@ -2,6 +2,8 @@ package recursive;
 
 import static org.junit.Assert.*;
 
+import java.math.BigDecimal;
+
 import org.junit.Test;
 
 public class TripleStepTest {
@@ -10,13 +12,15 @@ public class TripleStepTest {
 
 	@Test
 	public void test() {
-		assertEquals(1, sut.count(1));
-		assertEquals(2, sut.count(2));
-		assertEquals(4, sut.count(3));
-		assertEquals(7, sut.count(4));
-		assertEquals(13, sut.count(5));
-		assertTrue(sut.count(40) > 0);
-		assertTrue(sut.count(1000) > 0);
+		assertEquals(1, sut.count(1).intValue());
+		assertEquals(2, sut.count(2).intValue());
+		assertEquals(4, sut.count(3).intValue());
+		assertEquals(7, sut.count(4).intValue());
+		assertEquals(13, sut.count(5).intValue());
+		assertTrue(sut.count(40).compareTo(BigDecimal.ZERO) > 0);
+		assertTrue(sut.count(1000).compareTo(BigDecimal.ZERO) > 0);
+		assertTrue(sut.count(10000).compareTo(BigDecimal.ZERO) > 0);
+		assertTrue(sut.count(100000).compareTo(BigDecimal.ZERO) > 0);
 	}
 
 }

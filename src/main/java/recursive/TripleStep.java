@@ -1,26 +1,24 @@
 package recursive;
 
-import java.util.Arrays;
+import java.math.BigDecimal;
 
 public class TripleStep {
-	private static final long SENTINEL = -1;
+	public BigDecimal count(int n) {
+		if (n <= 0) {
+			throw new IllegalArgumentException();
+		}
 
-	public long count(int n) {
-		long[] cache = new long[n + 1];
-		Arrays.fill(cache, SENTINEL);
-		return count(n, cache);
-	}
+		BigDecimal a = BigDecimal.ONE;
+		BigDecimal b = BigDecimal.ONE;
+		BigDecimal c = BigDecimal.valueOf(2);
+		BigDecimal d = BigDecimal.ZERO;
 
-	private long count(int n, long[] cache) {
-		if (n < 0) {
-			return 0;
+		for (int i = 1; i <= n; ++i) {
+			d = a.add(b).add(c);
+			a = b;
+			b = c;
+			c = d;
 		}
-		if (n == 0) {
-			return 1;
-		}
-		if (cache[n] == SENTINEL) {
-			return cache[n] = count(n - 1, cache) + count(n - 2, cache) + count(n - 3, cache);
-		}
-		return cache[n];
+		return a;
 	}
 }
