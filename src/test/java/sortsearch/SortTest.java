@@ -8,8 +8,7 @@ import org.junit.Test;
 
 public class SortTest {
 
-	private Sort<Integer> bs = new BubbleSort<>();
-	private Sort<Integer> ss = new SelectionSort<>();
+	private Sort<Integer> sortingAlgorithm;
 
 	private Integer[] original = Arrays.asList(3, 2, 1, 1, 5, 9, 8).toArray(new Integer[] {});
 	
@@ -17,18 +16,40 @@ public class SortTest {
 
 	@Test
 	public void bubbleSort() {
+		sortingAlgorithm = new BubbleSort<>();
 		Integer[] array = original.clone();
 		
-		bs.sort(array);
+		sortingAlgorithm.sort(array);
 		
 		assertArrayEquals(sorted, array);
 	}
 	
 	@Test
 	public void selectionSort() {
+		sortingAlgorithm = new SelectionSort<>();
 		Integer[] array = original.clone();
 		
-		ss.sort(array);
+		sortingAlgorithm.sort(array);
+		
+		assertArrayEquals(sorted, array);
+	}
+	
+	@Test
+	public void insertionSort() {
+		sortingAlgorithm = new InsertionSort<>();
+		Integer[] array = original.clone();
+		
+		sortingAlgorithm.sort(array);
+		
+		assertArrayEquals(sorted, array);
+	}
+	
+	@Test
+	public void mergeSort() {
+		sortingAlgorithm = new MergeSort<>();
+		Integer[] array = original.clone();
+		
+		sortingAlgorithm.sort(array);
 		
 		assertArrayEquals(sorted, array);
 	}
