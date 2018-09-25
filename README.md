@@ -1,1 +1,1 @@
-# This is a readme
+My coding interview exercise
